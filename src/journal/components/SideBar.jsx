@@ -1,4 +1,5 @@
 /* eslint-disable react/prop-types */
+import { useSelector } from "react-redux";
 import { TurnedInNot } from "@mui/icons-material";
 import {
     Box,
@@ -15,6 +16,9 @@ import {
 } from "@mui/material";
 
 export const SideBar = ({ drawerWidth }) => {
+
+    const { displayName } = useSelector(state => state.auth);
+
     return (
         <Box
             component={'nav'}
@@ -37,7 +41,7 @@ export const SideBar = ({ drawerWidth }) => {
                         noWrap
                         component={'div'}
                     >
-                        Carlos laib
+                        {displayName}
                     </Typography>
                 </Toolbar>
                 <Divider />
@@ -51,8 +55,8 @@ export const SideBar = ({ drawerWidth }) => {
                                         <TurnedInNot />
                                     </ListItemIcon>
                                     <Grid>
-                                    <ListItemText primary={text}/>
-                                    <ListItemText secondary={'jksdjksd sdj ksdjk sjk ddkljs '}/>
+                                        <ListItemText primary={text} />
+                                        <ListItemText secondary={'jksdjksd sdj ksdjk sjk ddkljs '} />
                                     </Grid>
                                 </ListItemButton>
                             </ListItem>
